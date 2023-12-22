@@ -1,0 +1,28 @@
+﻿@model WebApplication2.Models.Cart
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cart</h4>
+    <hr />
+    <dl class="row">
+    </dl>
+</div>
+<div>
+    @if(Model.cartItems != null)
+    {
+        @foreach(var prod in Model.cartItems)
+        {
+            @if (@prod != null)
+            {
+                <p>@prod.Product.Title</p>
+            }
+        }
+    }
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
